@@ -5,13 +5,15 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
-  let constData = obj,
-    fieldsData = fields,
-    i = 0,
-    arrContainer = new Map(Object.entries(constData));
+  const constData = obj;
+  const fieldsData = fields;
+  let i = 0;
+  let arrContainer = new Map(Object.entries(constData));
   for (let key in constData) {
-    arrContainer.delete(fieldsData[i], constData[fieldsData[i]]);
-    i++;
+    if (Object.hasOwn(constData, fieldsData[i])) {
+      arrContainer.delete(fieldsData[i], constData[fieldsData[i]]);
+      i++;
+    }
   }
   return Object.fromEntries(arrContainer);
 };
