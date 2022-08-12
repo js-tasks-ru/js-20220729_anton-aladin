@@ -5,13 +5,15 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
-  let constData = obj,
-      fieldsData = fields,
-      i = 0,
-      arrContainer = new Map();
+  const constData = obj;
+  const fieldsData = [...fields];
+  let i = 0;
+  let arrContainer = new Map();
   for (let key in constData) {
-    arrContainer.set(fieldsData[i], constData[fieldsData[i]]);
-    i++;
+    if (Object.hasOwn(constData, fieldsData[i])) {
+      arrContainer.set(fieldsData[i], constData[fieldsData[i]]);
+      i++;
+    }
   }
   return Object.fromEntries(arrContainer);
 };
