@@ -24,14 +24,15 @@
         data: ordersData,
         label: 'orders',
         value: 344,
-        link: '#'
+        link: ''
       });
 
       const salesChart = new ColumnChart({
         data: salesData,
         label: 'sales',
         value: 243437,
-        formatHeading: data => `$${data}`
+        formatHeading: data => `$${data}`,
+        link: 'link1'
       });
 
       const customersChart = new ColumnChart({

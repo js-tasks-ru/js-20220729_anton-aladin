@@ -8,12 +8,12 @@ export function createGetter(path) {
   const fieldDataLength = fieldData.length;
   let i = 0;
   return (productData) => {
-    for (let names of fieldData) {
+    for (const names of fieldData) {
       if (productData === undefined) {
         return productData;
       }
       productData = productData[names];
-      i++;
+      i += 1;
       if (fieldDataLength === i) {
         return productData;
       }
